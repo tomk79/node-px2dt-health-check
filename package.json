@@ -1,0 +1,19 @@
+{
+  "name": "px2dt-health-check",
+  "version": "0.1.0",
+  "description": "Pickles 2 プロジェクトの状態を調べ、問題解決のためのヒントを提示します。",
+  "main": "libs/main.js",
+  "repository": {
+    "url": "https://github.com/tomk79/node-px2dt-health-check.git"
+  },
+  "scripts": {
+    "test": "mocha --ui tdd ./tests/"
+  },
+  "author": "Tomoya Koyanagi",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}

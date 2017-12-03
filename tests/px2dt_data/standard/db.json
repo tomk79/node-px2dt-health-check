@@ -1,0 +1,33 @@
+{
+ "commands": {
+  "php": "",
+  "git": "",
+  "composer": "<tests_root>/px2dt_data/standard/commands/composer/composer.phar"
+ },
+ "apps": {
+  "texteditor": "/Applications/Atom.app",
+  "texteditorForDir": "/Applications/Atom.app"
+ },
+ "projects": [
+  {
+   "name": "Get start \"Pickles 2\" !",
+   "path": "<tests_root>/pickles2/standard",
+   "home_dir": "px2-files/",
+   "entry_script": ".px_execute.php",
+   "id": "PJ-9eb8e681549e7786f297ca8a0443ed93",
+   "extended": {
+    "external_preview_server_origin": "http://localhost:8080/"
+   }
+  }
+ ],
+ "network": {
+  "preview": {
+   "port": "58080",
+   "accessRestriction": "loopback"
+  },
+  "appserver": {
+   "port": "58081"
+  }
+ },
+ "language": "ja"
+}
