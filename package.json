@@ -12,6 +12,7 @@
   "author": "Tomoya Koyanagi",
   "license": "MIT",
   "dependencies": {
+    "utils79": "0.0.4"
   },
   "devDependencies": {
     "mocha": "^2.4.5"
