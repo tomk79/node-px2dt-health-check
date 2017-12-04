@@ -6,13 +6,16 @@ Pickles 2 プロジェクトの状態を調べ、問題解決のためのヒン�
 
 ```js
 var Px2dtHealthChecker = require('../libs/main.js'),
-    px2dtHealthChecker = new Px2dtHealthChecker(
-        '/path/to/px2dt_data_dir/', // data directory
-        0 // project index number, or project ID (Optional)
-    );
-px2dtHealthChecker.check(function(result){
-	console.log(result);
-});
+    px2dtHealthChecker = new Px2dtHealthChecker();
+
+// デスクトップツールのチェック
+px2dtHealthChecker.checkDt(
+    '/path/to/px2dt_data_dir/', // data directory
+    0, // project index number, or project ID (Optional)
+    function(result){
+    	console.log(result);
+    }
+);
 ```
 
 
