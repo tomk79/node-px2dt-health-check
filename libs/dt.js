@@ -33,7 +33,7 @@ module.exports = function(pathDataDir, projectId){
 				}
 
 				result.dtProjectInfo = {
-					searchProjectKey: projectId
+					_searchProjectKey: projectId
 				};
 				try {
 					if(result.dbJson.contents && result.dbJson.contents.projects){
