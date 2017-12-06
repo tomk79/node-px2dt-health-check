@@ -3,6 +3,7 @@
  */
 module.exports = function(){
 	var utils79 = require('utils79');
+	var utils = require('./utils.js');
 
 	/**
 	 * Health Check を実行する
@@ -28,22 +29,22 @@ module.exports = function(){
 			.then(function(){ return new Promise(function(rlv, rjt){
 				result.currentDir = {
 					path: require('path').resolve('.'),
-					ls: require('fs').readdirSync('.'),
-					packageJson: null,
-					composerJson: null
+					ls: utils.ls('.'),
+					packageJson: undefined,
+					composerJson: undefined
 				};
 				if( utils79.is_file('./package.json') ){
 					try {
 						result.currentDir.packageJson = JSON.parse( require('fs').readFileSync('./package.json').toString() );
 					} catch (e) {
-						result.currentDir.packageJson = false;
+						result.currentDir.packageJson = undefined;
 					}
 				}
 				if( utils79.is_file('./composer.json') ){
 					try {
 						result.currentDir.composerJson = JSON.parse( require('fs').readFileSync('./composer.json').toString() );
 					} catch (e) {
-						result.currentDir.composerJson = false;
+						result.currentDir.composerJson = undefined;
 					}
 				}
 

@@ -18,7 +18,18 @@ describe('Health Check', function() {
 		var px2dtHealthChecker = new Px2dtHealthChecker();
 		px2dtHealthChecker.checkDt(__dirname+'/px2dt_data/standard/', 0, function(result){
 			assert.equal(typeof(result), typeof({}));
-			console.log(result);
+			assert.equal(typeof(result.process), typeof({}));
+			assert.equal(typeof(result.currentDir), typeof({}));
+			assert.equal(typeof(result.cmd), typeof({}));
+			assert.equal(typeof(result.dataDir), typeof({}));
+			assert.equal(typeof(result.dbJson), typeof({}));
+			assert.equal(typeof(result.dtProjectInfo), typeof({}));
+			assert.equal(typeof(result.project), typeof({}));
+
+			// console.log(result);
+			// console.log(result.project.homeDir);
+			// console.log(result.project.composer.pathsComposerJson);
+			// console.log(result.project.composer.pathsVendor);
 			done();
 		});
 	});

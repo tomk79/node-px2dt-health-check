@@ -3,6 +3,7 @@
  */
 module.exports = function(pathDataDir, projectId){
 	var utils79 = require('utils79');
+	var utils = require('./utils.js');
 
 	/**
 	 * Health Check を実行する
@@ -18,7 +19,7 @@ module.exports = function(pathDataDir, projectId){
 					path: require('path').resolve(pathDataDir),
 					exists: require('fs').existsSync(pathDataDir),
 					isDir: utils79.is_dir(pathDataDir),
-					ls: require('fs').readdirSync(pathDataDir)
+					ls: utils.ls(pathDataDir)
 				};
 
 				result.dbJson = {
@@ -29,7 +30,7 @@ module.exports = function(pathDataDir, projectId){
 				try {
 					result.dbJson.contents = JSON.parse(require('fs').readFileSync(pathDataDir+'/db.json').toString());
 				} catch (e) {
-					result.dbJson.contents = false;
+					result.dbJson.contents = undefined;
 				}
 
 				result.dtProjectInfo = {
@@ -60,9 +61,9 @@ module.exports = function(pathDataDir, projectId){
 						isDir: utils79.is_dir(result.dtProjectInfo.contents.path)
 					};
 					try {
-						result.dtProjectInfo.path.ls = require('fs').readdirSync(result.dtProjectInfo.contents.path);
+						result.dtProjectInfo.path.ls = utils.ls(result.dtProjectInfo.contents.path);
 					} catch (e) {
-						result.dtProjectInfo.path.ls = false;
+						result.dtProjectInfo.path.ls = undefined;
 					}
 				}
 
