@@ -3,7 +3,6 @@
  */
 module.exports = function(){
 	var utils79 = require('utils79');
-	var childProc = require('child_process');
 
 	/**
 	 * Health Check を実行する
@@ -24,11 +23,33 @@ module.exports = function(){
 					}
 				}
 
+				rlv();
+			}); })
+			.then(function(){ return new Promise(function(rlv, rjt){
 				result.currentDir = {
 					path: require('path').resolve('.'),
-					ls: require('fs').readdirSync('.')
+					ls: require('fs').readdirSync('.'),
+					packageJson: null,
+					composerJson: null
 				};
+				if( utils79.is_file('./package.json') ){
+					try {
+						result.currentDir.packageJson = JSON.parse( require('fs').readFileSync('./package.json').toString() );
+					} catch (e) {
+						result.currentDir.packageJson = false;
+					}
+				}
+				if( utils79.is_file('./composer.json') ){
+					try {
+						result.currentDir.composerJson = JSON.parse( require('fs').readFileSync('./composer.json').toString() );
+					} catch (e) {
+						result.currentDir.composerJson = false;
+					}
+				}
 
+				rlv();
+			}); })
+			.then(function(){ return new Promise(function(rlv, rjt){
 				callback(result);
 			}); })
 		;

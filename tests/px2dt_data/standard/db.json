@@ -12,7 +12,7 @@
   {
    "name": "Get start \"Pickles 2\" !",
    "path": "<tests_root>/pickles2/standard",
-   "home_dir": "px2-files/",
+   "home_dir": "px-files/",
    "entry_script": ".px_execute.php",
    "id": "PJ-9eb8e681549e7786f297ca8a0443ed93",
    "extended": {

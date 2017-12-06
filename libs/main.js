@@ -39,6 +39,18 @@ module.exports = function(){
 				});
 			}); })
 			.then(function(){ return new Promise(function(rlv, rjt){
+				var Project = require('./project.js'),
+					pj = new Project(
+						result.dtProjectInfo.contents.path,
+						result.dtProjectInfo.contents.entry_script,
+						result.dtProjectInfo.contents.home_dir
+					);
+				pj.check(function(tmpRslt){
+					result = Object.assign(result, tmpRslt);
+					rlv();
+				});
+			}); })
+			.then(function(){ return new Promise(function(rlv, rjt){
 				callback(result);
 			}); })
 		;
