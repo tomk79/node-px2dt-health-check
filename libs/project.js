@@ -30,8 +30,13 @@ module.exports = function(path, relativePathEntryScript, relativePathHomeDir){
 					pathsComposerJson: [],
 					pathsVendor: []
 				};
+				var rootDir = result.project.path.path;
+				if(relativePathEntryScript){
+					rootDir = utils79.dirname(require('path').resolve(rootDir, relativePathEntryScript));
+				}
+
 				try {
-					var pathsComposerJson = utils.findFilesInParentPath( 'composer.json', utils79.dirname(result.project.entryScript.path) );
+					var pathsComposerJson = utils.findFilesInParentPath( 'composer.json', rootDir );
 					if(pathsComposerJson){
 						for(var idx in pathsComposerJson){
 							var vendor = {
@@ -43,8 +48,9 @@ module.exports = function(path, relativePathEntryScript, relativePathHomeDir){
 					}
 				} catch (e) {
 				}
+
 				try {
-					var pathsVendor = utils.findFilesInParentPath( 'vendor', utils79.dirname(result.project.entryScript.path) );
+					var pathsVendor = utils.findFilesInParentPath( 'vendor', rootDir );
 					if(pathsVendor){
 						for(var idx in pathsVendor){
 							var vendor = {

@@ -26,6 +26,9 @@ describe('Health Check', function() {
 			assert.equal(typeof(result.dtProjectInfo), typeof({}));
 			assert.equal(typeof(result.project), typeof({}));
 
+			assert.equal(result.project.composer.pathsComposerJson.length, 2);
+			assert.equal(result.project.composer.pathsVendor.length, 1);
+
 			// console.log(result);
 			// console.log(result.project.homeDir);
 			// console.log(result.project.composer.pathsComposerJson);
