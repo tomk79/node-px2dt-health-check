@@ -93,8 +93,12 @@ module.exports = function(path, relativePathEntryScript, relativePathHomeDir){
 				})(result.project.px2package);
 
 				var realpathEntryScript = require('path').resolve(result.project.path.path, relativePathEntryScript);
-				if(!relativePathEntryScript && px2packagePrimaryProject.path){
-					realpathEntryScript = require('path').resolve(result.project.path.path, px2packagePrimaryProject.path);
+				if(!relativePathEntryScript){
+					if( px2packagePrimaryProject.path){
+						realpathEntryScript = require('path').resolve(result.project.path.path, px2packagePrimaryProject.path);
+					}else{
+						realpathEntryScript = require('path').resolve(result.project.path.path, '.px_execute.php');
+					}
 				}
 				result.project.entryScript = {
 					_inputValue: relativePathEntryScript,
@@ -105,8 +109,12 @@ module.exports = function(path, relativePathEntryScript, relativePathHomeDir){
 				};
 
 				var realpathHomeDir = require('path').resolve(result.project.path.path, relativePathHomeDir);
-				if(!relativePathHomeDir && px2packagePrimaryProject.path_homedir){
-					realpathHomeDir = require('path').resolve(result.project.path.path, px2packagePrimaryProject.path_homedir);
+				if(!relativePathHomeDir){
+					if(px2packagePrimaryProject.path_homedir){
+						realpathHomeDir = require('path').resolve(result.project.path.path, px2packagePrimaryProject.path_homedir);
+					}else{
+						realpathHomeDir = require('path').resolve(result.project.path.path, 'px-files/');
+					}
 				}
 				result.project.homeDir = {
 					_inputValue: relativePathHomeDir,
