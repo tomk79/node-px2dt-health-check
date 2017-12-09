@@ -26,6 +26,8 @@ describe('Health Check', function() {
 			assert.equal(typeof(result.dtProjectInfo), typeof({}));
 			assert.equal(typeof(result.project), typeof({}));
 
+			assert.equal(result.project.px2package.content.name, 'Pickles 2 health check');
+
 			assert.equal(result.project.composer.pathsComposerJson.length, 2);
 			assert.equal(result.project.composer.pathsVendor.length, 1);
 

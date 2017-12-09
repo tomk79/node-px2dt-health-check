@@ -1,1 +1,10 @@
-{}
+{
+    "extra":{
+        "px2package":{
+            "name": "Pickles 2 health check",
+            "type": "project",
+            "path": ".px_execute.php",
+            "path_homedir": "px-files/"
+        }
+    }
+}

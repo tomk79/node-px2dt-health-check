@@ -80,12 +80,12 @@ module.exports = function(path, relativePathEntryScript, relativePathHomeDir){
 					if( px2package === undefined ){
 						return {};
 					}
-					if( px2package.type == 'project' ){
-						return px2package;
-					}else if( px2package[0] ){
-						for(var idx in px2package){
-							if(px2package[idx].type == 'project'){
-								return px2package[idx];
+					if( px2package.content.type == 'project' ){
+						return px2package.content;
+					}else if( px2package.content[0] ){
+						for(var idx in px2package.content){
+							if(px2package.content[idx].type == 'project'){
+								return px2package.content[idx];
 							}
 						}
 					}
